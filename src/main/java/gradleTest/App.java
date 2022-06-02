@@ -17,7 +17,7 @@ public class App {
         boolean passCheck;
         Wall wallDefualt = new Wall(0);
         System.out.println("Укажите количество участниов");
-        participantsNum = 1;
+        participantsNum = readNum();
         System.out.println("Укажите количество препятствий");
 
         obstaclNum = 1;
@@ -57,8 +57,18 @@ public class App {
     }
 
 
-    static int readNum() {
-        return 1;
+    static int readNum(){
+        Scanner scr = new Scanner(System.in);
+        System.out.println("Введите число");
+        do {
+            if (scr.hasNextInt()) {
+                int num = scr.nextInt();
+                return num;
+            }
+            scr.nextLine();
+            System.out.println("Введите чилсо");
+        } while (true);
+
     }
     //Выбор участнико
     static Act participant(){
